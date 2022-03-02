@@ -1,21 +1,18 @@
-const Axios = require("axios");
-const log = require("../scripts/log-to-console");
+const fetch = require('node-fetch')
+const log = require('../scripts/log-to-console')
 
-module.exports = ApiCaller = (apiCallerConfig) => {
-  Axios.interceptors.request.use(
-    async (config) => config,
+module.exports = ApiCaller = async ({ url, config }) => {
+  try {
+    const response = await fetch(url, config)
 
-    (error) => Promise.reject(error)
-  );
-
-  Axios.interceptors.response.use(
-    (response) => response,
-
-    (error) => {
-      log("Unable to fetch data", "red");
-      return error.response;
+    if (!response.ok) {
+      throw new Error(`unexpected response ${response.statusText}`)
     }
-  );
 
-  return Axios.request(apiCallerConfig);
-};
+    const data = await response.json()
+
+    return data
+  } catch (error) {
+    log(error, 'red')
+  }
+}

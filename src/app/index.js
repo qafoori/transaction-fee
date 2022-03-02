@@ -1,25 +1,26 @@
 const AppBase = require('./base.app')
 const log = require('../scripts/log-to-console')
-const storageTypes = require('../constants/storage-types.constant')
+const { CASH_IN, CASH_OUT_JURIDICAL, CASH_OUT_NATURAL } = require('../constants/storage-types.constant')
 
 module.exports = class App extends AppBase {
   constructor(_data) {
     super()
+
     this.data = _data
+    this.commissions = []
+    this.calculateAmounts(this.data)
   }
 
   async cashOut(item) {
     switch (item.user_type) {
       case 'natural': {
         await this.getCashOutNatural()
-        this.cashOutNatural(item)
-        break
+        return this.cashOutNatural(item)
       }
 
       case 'juridical': {
         await this.getCashOutJuridical()
-        this.cashOutJuridical(item)
-        break
+        return this.cashOutJuridical(item)
       }
 
       default: {
@@ -32,56 +33,50 @@ module.exports = class App extends AppBase {
 
   cashOutNatural(item) {
     // prettier-ignore
-    const { operation: { amount }, user_id, date } = item
-    const totalAmount = this.getAmount(user_id, date)
+    const { operation: { amount } } = item
+    const totalAmount = this.getAmount(item)
 
     // prettier-ignore
-    const { percents, week_limit: { amount: weekLimit } } = this.storage.get(storageTypes.CASH_OUT_NATURAL)
+    const { percents, week_limit: { amount: weekLimit } } = this.storage.get(CASH_OUT_NATURAL)
     const percentage = percents / 100
 
     if (totalAmount > weekLimit) {
       if (amount > weekLimit) {
-        log(((amount - weekLimit) * percentage).toFixed(2), 'magenta')
+        return ((amount - weekLimit) * percentage).toFixed(2)
       } else {
-        log((amount * percentage).toFixed(2), 'magenta')
+        return (amount * percentage).toFixed(2)
       }
     } else {
-      log((0).toFixed(2), 'magenta')
+      return (0).toFixed(2)
     }
   }
 
   cashOutJuridical(item) {
     // prettier-ignore
-    const { percents, min: { amount } } = this.storage.get(storageTypes.CASH_OUT_JURIDICAL)
+    const { percents, min: { amount } } = this.storage.get(CASH_OUT_JURIDICAL)
     const fee = item.operation.amount * (percents / 100)
 
-    log(Math.max(fee, amount).toFixed(2), 'magenta')
+    return Math.max(fee, amount).toFixed(2)
   }
 
   async cashIn(item) {
     await this.getCashIn()
-    const { percents, max } = this.storage.get(storageTypes.CASH_IN)
+    const { percents, max } = this.storage.get(CASH_IN)
     const fee = item.operation.amount * (percents / 100)
 
-    log(Math.min(fee, max.amount).toFixed(2), 'magenta')
+    return Math.min(fee, max.amount).toFixed(2)
   }
 
   async start() {
     for (const item of this.data) {
-      if (item.type === 'cash_out' && item.user_type === 'natural') {
-        this.calculateAmounts(item.user_id, item.date, item.operation.amount)
-      }
-    }
-
-    for (const item of this.data) {
       switch (item.type) {
         case 'cash_out': {
-          await this.cashOut(item)
+          this.commissions.push(await this.cashOut(item))
           break
         }
 
         case 'cash_in': {
-          await this.cashIn(item)
+          this.commissions.push(await this.cashIn(item))
           break
         }
 
@@ -92,5 +87,7 @@ module.exports = class App extends AppBase {
         }
       }
     }
+
+    return this.commissions
   }
 }
