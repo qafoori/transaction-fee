@@ -70,11 +70,11 @@ module.exports = class App extends AppBase {
 
     if (totalAmount > weekLimit) {
       if (amount > weekLimit) {
-        return ((amount - weekLimit) * percentage).toFixed(2);
+        return (amount - weekLimit) * percentage;
       }
-      return (amount * percentage).toFixed(2);
+      return amount * percentage;
     }
-    return (0).toFixed(2);
+    return 0;
   }
 
   /**
@@ -89,7 +89,7 @@ module.exports = class App extends AppBase {
     const { percents, min: { amount: minAmount } } = this.storage.get(CASH_OUT_JURIDICAL)
     const commission = amount * (percents / 100);
 
-    return Math.max(commission, minAmount).toFixed(2);
+    return Math.max(commission, minAmount);
   }
 
   /**
@@ -105,7 +105,18 @@ module.exports = class App extends AppBase {
     const { percents, max: { amount: maxAmount } } = this.storage.get(CASH_IN)
     const commission = amount * (percents / 100);
 
-    return Math.min(commission, maxAmount).toFixed(2);
+    return Math.min(commission, maxAmount);
+  }
+
+  /**
+   *
+   * 
+   * 
+   * @param {number} number
+   * @returns manipulates the final fee. in this case, will convert integer number to ceiled float with two decimals
+   */
+  manipulateFee(number) {
+    return number.toFixed(2);
   }
 
   /**
@@ -119,12 +130,14 @@ module.exports = class App extends AppBase {
     for (const item of this.data) {
       switch (item.type) {
         case 'cash_out': {
-          this.commissions.push(await this.cashOut(item));
+          const finalFee = await this.cashOut(item);
+          this.commissions.push(this.manipulateFee(finalFee));
           break;
         }
 
         case 'cash_in': {
-          this.commissions.push(await this.cashIn(item));
+          const finalFee = await this.cashIn(item);
+          this.commissions.push(this.manipulateFee(finalFee));
           break;
         }
 
