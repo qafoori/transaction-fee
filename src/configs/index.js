@@ -1,2 +1,2 @@
-require("./environments.config");
-require("./prototypes.config");
+require('./environments.config')
+require('./prototypes.config')

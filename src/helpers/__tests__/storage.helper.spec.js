@@ -6,7 +6,7 @@ describe('testing storage helper', () => {
     storage.put('key', 'value')
     expect(storage.get('key')).toBe('value')
   })
- 
+
   it('should put data in storage only if that is not already exist', () => {
     const storage = new Storage()
     storage.put('key', 'value')
