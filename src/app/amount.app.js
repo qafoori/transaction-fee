@@ -24,7 +24,7 @@ module.exports = class Amount extends Storage {
 
   calculateAmounts(data) {
     for (const item of data) {
-      this.calculateUserAmount(item)
+      this.calculateUserAmount(item);
     }
   }
 };

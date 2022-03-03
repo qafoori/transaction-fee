@@ -74,23 +74,23 @@ module.exports = class App extends AppBase {
     for (const item of this.data) {
       switch (item.type) {
         case 'cash_out': {
-          this.commissions.push(await this.cashOut(item))
-          break
+          this.commissions.push(await this.cashOut(item));
+          break;
         }
 
         case 'cash_in': {
-          this.commissions.push(await this.cashIn(item))
-          break
+          this.commissions.push(await this.cashIn(item));
+          break;
         }
 
         default: {
-          log(`${item.type} for user [${item.user_id}] is not supported`, 'red')
-          log('Supported transaction types are ["cash_in", "cash_out"]', 'blue')
-          throw new Error('Unsupported transaction `type`')
+          log(`${item.type} for user [${item.user_id}] is not supported`, 'red');
+          log('Supported transaction types are ["cash_in", "cash_out"]', 'blue');
+          throw new Error('Unsupported transaction `type`');
         }
       }
     }
 
-    return this.commissions
+    return this.commissions;
   }
 };
