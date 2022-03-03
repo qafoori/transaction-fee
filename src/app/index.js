@@ -11,16 +11,16 @@ module.exports = class App extends AppBase {
     this.calculateAmounts(this.data)
   }
 
-  async cashOut(item) {
-    switch (item.user_type) {
+  async cashOut({ user_id, date, user_type, type, operation: { amount } }) {
+    switch (user_type) {
       case 'natural': {
         await this.getCashOutNatural()
-        return this.cashOutNatural(item)
+        return this.cashOutNatural({ user_id, date, user_type, type, operation: { amount } })
       }
 
       case 'juridical': {
         await this.getCashOutJuridical()
-        return this.cashOutJuridical(item)
+        return this.cashOutJuridical({ operation: { amount } })
       }
 
       default: {
@@ -31,10 +31,8 @@ module.exports = class App extends AppBase {
     }
   }
 
-  cashOutNatural(item) {
-    // prettier-ignore
-    const { operation: { amount } } = item
-    const totalAmount = this.getAmount(item)
+  cashOutNatural({ user_id, date, user_type, type, operation: { amount } }) {
+    const totalAmount = this.getUserAmount({ user_id, date, user_type, type })
 
     // prettier-ignore
     const { percents, week_limit: { amount: weekLimit } } = this.storage.get(CASH_OUT_NATURAL)
@@ -51,20 +49,21 @@ module.exports = class App extends AppBase {
     }
   }
 
-  cashOutJuridical(item) {
+  cashOutJuridical({ operation: { amount } }) {
     // prettier-ignore
-    const { percents, min: { amount } } = this.storage.get(CASH_OUT_JURIDICAL)
-    const fee = item.operation.amount * (percents / 100)
+    const { percents, min: { amount: minAmount } } = this.storage.get(CASH_OUT_JURIDICAL)
+    const commission = amount * (percents / 100)
 
-    return Math.max(fee, amount).toFixed(2)
+    return Math.max(commission, minAmount).toFixed(2)
   }
 
-  async cashIn(item) {
+  async cashIn({ operation: { amount } }) {
     await this.getCashIn()
-    const { percents, max } = this.storage.get(CASH_IN)
-    const fee = item.operation.amount * (percents / 100)
+    // prettier-ignore
+    const { percents, max: { amount: maxAmount } } = this.storage.get(CASH_IN)
+    const commission = amount * (percents / 100)
 
-    return Math.min(fee, max.amount).toFixed(2)
+    return Math.min(commission, maxAmount).toFixed(2)
   }
 
   async start() {
