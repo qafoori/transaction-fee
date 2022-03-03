@@ -1,4 +1,4 @@
-const { API_BASE_URL } = process.env
+const { API_BASE_URL } = process.env;
 
 module.exports = {
   CASH_IN_API: {
@@ -21,4 +21,4 @@ module.exports = {
       method: 'get',
     },
   },
-}
+};

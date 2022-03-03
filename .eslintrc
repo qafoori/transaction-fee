@@ -1,0 +1,18 @@
+{
+  "extends": ["airbnb", "plugin:node/recommended"],
+  "plugins": ["prettier"],
+  "rules": {
+    "no-unused-vars": "warn",
+    "no-console": "off",
+    "func-names": "off",
+    "no-process-exit": "off",
+    "object-shorthand": "off",
+    "class-methods-use-this": "off",
+    "camelcase": "off",
+    "object-curly-newline": "off",
+    "no-undef": "off",
+    "global-require": "off",
+    "no-extend-native": "off",
+    "parser": "babel-eslint"
+  }
+}

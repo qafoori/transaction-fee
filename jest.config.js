@@ -3,5 +3,5 @@ module.exports = async () => {
     rootDir: '.',
     setupFiles: ['<rootDir>/src/configs/set-environments.config.js'],
     reporters: ['default', 'jest-junit'],
-  }
-}
+  };
+};

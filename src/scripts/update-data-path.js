@@ -1,10 +1,15 @@
-const { writeFile } = require('fs')
-const packageFile = require('../../package.json')
-const newDataPath = process.argv[2] || './src/example-inputs.json'
+const { writeFile } = require('fs');
+const packageFile = require('../../package.json');
 
-packageFile.scripts.start = `node app.js ${newDataPath}`
-packageFile.scripts.dev = `nodemon app.js ${newDataPath}`
-packageFile.scripts['data:check'] = `cat ${newDataPath}`
-packageFile.scripts['data:edit'] = `sudo vim ${newDataPath}`
+const newDataPath = process.argv[2] || './src/example-inputs.json';
 
-writeFile('package.json', JSON.stringify(packageFile, null, 2), console.log)
+packageFile.scripts.start = `node app.js ${newDataPath}`;
+packageFile.scripts.dev = `nodemon app.js ${newDataPath}`;
+
+packageFile.scripts['data:check'] = `cat ${newDataPath}`;
+packageFile.scripts['data:check:win'] = `more ${newDataPath}`;
+
+packageFile.scripts['data:edit'] = `sudo vim ${newDataPath}`;
+packageFile.scripts['data:edit:win'] = `notepad ${newDataPath}`;
+
+writeFile('package.json', JSON.stringify(packageFile, null, 2), console.log);

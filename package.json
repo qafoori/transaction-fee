@@ -1,17 +1,21 @@
 {
   "name": "bank-account",
   "version": "1.0.0",
-  "description": "An example of how a bank works",
+  "description": "An Example Of How An Online Payment System Works",
   "main": "app.js",
   "scripts": {
     "start": "node app.js ./src/example-inputs.json",
     "dev": "nodemon app.js ./src/example-inputs.json",
     "data:check": "cat ./src/example-inputs.json",
+    "data:check:win": "more .\\src\\example-inputs.json",
     "data:edit": "sudo vim ./src/example-inputs.json",
+    "data:edit:win": "notepad .\\src\\example-inputs.json",
     "data:change-path": "sudo node ./src/scripts/update-data-path.js",
+    "data:change-path:win": "node ./src/scripts/update-data-path.js",
     "test:run": "jest --silent=true",
     "test:watch": "jest --watch --silent=false",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "format": "npx prettier --write ."
   },
   "repository": {
     "type": "git",
@@ -19,7 +23,7 @@
   },
   "keywords": [
     "bank",
-    "bank",
+    "payment",
     "account"
   ],
   "author": "qafoori",
@@ -33,11 +37,23 @@
     "node-fetch": "^2.6.1"
   },
   "devDependencies": {
+    "babel-eslint": "^10.1.0",
+    "eslint": "^8.2.0",
+    "eslint-config-airbnb": "19.0.4",
+    "eslint-config-node": "^4.1.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-import": "^2.25.3",
+    "eslint-plugin-jsx-a11y": "^6.5.1",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-react": "^7.28.0",
+    "eslint-plugin-react-hooks": "^4.3.0",
     "fs": "^0.0.1-security",
     "husky": "^7.0.0",
     "jest": "^27.5.1",
     "jest-junit": "^13.0.0",
-    "nodemon": "^2.0.15"
+    "nodemon": "^2.0.15",
+    "prettier": "^2.5.1"
   },
   "nodemonConfig": {
     "ignore": []

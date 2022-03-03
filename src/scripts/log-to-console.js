@@ -7,13 +7,13 @@ const colors = {
   magenta: '\x1b[35m',
   cyan: '\x1b[36m',
   white: '\x1b[37m',
-}
+};
 
 const log = (data, color) => {
   if (!color) {
-    return console.log(data)
+    return console.log(data);
   }
-  return console.log(`${colors[color]}%s\x1b[0m`, data)
-}
+  return console.log(`${colors[color]}%s\x1b[0m`, data);
+};
 
-module.exports = log
+module.exports = log;
