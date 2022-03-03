@@ -13,24 +13,30 @@ describe('testing `App` class', () => {
   it('should calculate cash in commission fee', async () => {
     const app = new App([]);
     const result = await app.cashIn(data[0]);
-    expect(result).toBe('0.06');
+    expect(result).toBe(0.06);
   });
 
   it('should calculate cash out commission fee for juridical user', async () => {
     const app = new App([]);
     const result = await app.cashOut(data[1]);
-    expect(result).toBe('0.90');
+    expect(result).toBe(0.9);
   });
 
   it('should calculate cash out commission fee for natural user with the total amount of MORE than given total amount in a week', async () => {
     const app = new App(data);
     const result = await app.cashOut(data[2]);
-    expect(result).toBe('87.00');
+    expect(result).toBe(87);
   });
 
   it('should calculate cash out commission fee for natural user with the total amount of LESS than given total amount in a week', async () => {
     const app = new App(data);
     const result = await app.cashOut(data[8]);
-    expect(result).toBe('0.00');
+    expect(result).toBe(0);
+  });
+
+  it('should manipulate final fee to expected result', () => {
+    const app = new App([]);
+    expect(app.manipulateFee(0)).toEqual('0.00');
+    expect(app.manipulateFee(0.9)).toEqual('0.90');
   });
 });
