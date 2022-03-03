@@ -1,4 +1,4 @@
-const ApiCaller = require('./fetch.helper')
+const ApiCaller = require('../fetch.helper')
 const exampleApiConfig = { url: 'https://reqres.in/api/products/', config: { method: 'get' } }
 
 describe('testing fetch helper', () => {

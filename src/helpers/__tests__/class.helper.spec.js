@@ -1,4 +1,4 @@
-const AllOf = require('./class.helper')
+const AllOf = require('../class.helper')
 
 describe('testing class helper', () => {
   it('should extend multiple classes', () => {
@@ -12,7 +12,7 @@ describe('testing class helper', () => {
 
     class C extends AllOf(A, B) {}
 
-    const c = new C
+    const c = new C()
 
     expect(c.a).toBe('a')
     expect(c.b).toBe('b')

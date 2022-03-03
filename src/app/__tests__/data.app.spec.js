@@ -1,7 +1,7 @@
-require('../configs')
-const Data = require('./data.app')
+require('../../configs')
+const Data = require('../data.app')
 const data = new Data()
-const { CASH_IN, CASH_OUT_JURIDICAL, CASH_OUT_NATURAL } = require('../constants/storage-types.constant')
+const { CASH_IN, CASH_OUT_JURIDICAL, CASH_OUT_NATURAL } = require('../../constants/storage-types.constant')
 
 describe('testing `Data` class', () => {
   it('should fetch `cash in` data from API', async () => {

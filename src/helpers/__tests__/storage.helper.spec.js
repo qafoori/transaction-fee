@@ -1,4 +1,4 @@
-const Storage = require('./storage.helper')
+const Storage = require('../storage.helper')
 
 describe('testing storage helper', () => {
   it('should put and get data in storage', () => {

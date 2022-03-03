@@ -6,22 +6,25 @@ module.exports = class Amount extends Storage {
     return `user=${user_id}, week=${weekNumber}, userType=${user_type}, transaction=${type}`
   }
 
-  getAmount(data) {
-    const key = this.makeKey(data)
+  getUserAmount({ user_id, date, user_type, type }) {
+    const key = this.makeKey({ user_id, date, user_type, type })
     return this.storage.get(key)
+  }
+
+  calculateUserAmount({ user_id, date, user_type, type, operation: { amount } }) {
+    const key = this.makeKey({ user_id, date, user_type, type })
+
+    if (this.storage.has(key)) {
+      const total = this.storage.get(key) + amount
+      this.storage.set(key, total)
+    } else {
+      this.storage.set(key, amount)
+    }
   }
 
   calculateAmounts(data) {
     for (const item of data) {
-      const key = this.makeKey(item)
-      const { amount } = item.operation
-
-      if (this.storage.has(key)) {
-        const total = this.storage.get(key) + amount
-        this.storage.set(key, total)
-      } else {
-        this.storage.set(key, amount)
-      }
+      this.calculateUserAmount(item)
     }
   }
 }

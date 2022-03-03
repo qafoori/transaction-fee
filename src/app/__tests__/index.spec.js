@@ -1,6 +1,6 @@
-const App = require('./index')
-const data = require('../../__mocks__/_index.app.mock.json')
-require('../configs')
+const App = require('../index')
+const data = require('../__mocks__/_index.app.mock.json')
+require('../../configs')
 
 describe('testing `App` class', () => {
   it('should start the app and return commission fees', async () => {
