@@ -22,7 +22,7 @@ npm i
 cp .env.example .env
 ```
 
-### 3. Starting scripts
+### 4. Starting scripts
 ```bash
 ## will start the project and log the results of commission fees
 yarn start #or npm start
@@ -31,7 +31,7 @@ yarn start #or npm start
 yarn dev #or npm run dev
 ```
 
-### 4. Running tests scripts
+### 5. Running tests scripts
 ```bash
 ## will start the tests once
 yarn test:run #or npm run test:run
@@ -40,7 +40,7 @@ yarn test:run #or npm run test:run
 yarn test:watch #or npm run test:watch
 ```
 
-### 5. Data manipulation scripts
+### 6. Data manipulation scripts
 ```bash
 ## will print ($ cat) example data which is used by default in the repo
 yarn data:check #or npm run data:check
@@ -52,7 +52,7 @@ yarn data:edit #or npm run data:edit
 yarn data:change-path <PATH-TO-JSON-FILE> #or npm run data:change-path <PATH-TO-JSON-FILE>
 ```
 
-### 6. Contributing scripts
+### 7. Contributing scripts
 ```bash
 ## will install husky to run pre-commit commands
 yarn prepare #or npm run prepare
