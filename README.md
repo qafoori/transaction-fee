@@ -17,6 +17,11 @@ yarn
 npm i
 ```
 
+### 3. Setting up environment variables (*Very Important*)
+```bash
+cp .env.example .env
+```
+
 ### 3. Starting scripts
 ```bash
 ## will start the project and log the results of commission fees
