@@ -110,8 +110,8 @@ module.exports = class App extends AppBase {
 
   /**
    *
-   * 
-   * 
+   *
+   *
    * @param {number} number
    * @returns manipulates the final fee. in this case, will convert integer number to ceiled float with two decimals
    */
