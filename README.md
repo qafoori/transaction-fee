@@ -1,6 +1,20 @@
 This is a very simple example of online payment services. It calculates the fee of commissions for users per week
 
-## Get Started
+# Content
+- Get Strted
+	1. Clone the repo
+	2. Install dependencies
+	3. Setting up environment variables (*Very Important*)
+	4. Starting scripts
+	5. Running tests scripts
+	6. Data manipulation scripts
+	7. Contributing scripts
+- Imortant Things
+	1. Running test notes
+	2. Unix users
+	3. Windows users
+
+# Get Started
 To run this repo on your local environments, follow these steps:
 
 ### 1. Clone the repo
@@ -56,4 +70,29 @@ yarn data:change-path <PATH-TO-JSON-FILE> #or npm run data:change-path <PATH-TO-
 ```bash
 ## will install husky to run pre-commit commands
 yarn prepare #or npm run prepare
+```
+
+
+# Imortant Things
+### 1. Running test notes
+According to the test report file in the latest state ([junit.xml](https://github.com/qafoori/transaction-fee/blob/develop/junit.xml)), all tests are passed successfully.
+So if you run into problems with the tests and some of them did not pass (only the tests related to fetching the data from the APIs), the only reason is the problem of the Internet and with one or two retry attempts you will see all the tests pass.
+
+### 2. Unix users
+All scripts are executable for Unix users (those using Linux or Mac).
+> Note that the "cat" and "vim" accessories must be installed on your bash
+
+### 3. Windows users
+Users using cmd or powershell in Windows can not run the following scripts:
+```shell
+yarn data:check
+yarn data:edit
+yarn data:change-path
+```
+
+Use these commands instead:
+```shell
+yarn data:check:win
+yarn data:edit:win
+yarn data:change-path:win <PATH-TO-JSON-FILE>
 ```
