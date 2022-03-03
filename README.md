@@ -1,18 +1,18 @@
 This is a very simple example of online payment services. It calculates the fee of commissions for users per week
 
 # Content
-- Get Strted
-	1. Clone the repo
-	2. Install dependencies
-	3. Setting up environment variables (*Very Important*)
-	4. Starting scripts
-	5. Running tests scripts
-	6. Data manipulation scripts
-	7. Contributing scripts
-- Imortant Things
-	1. Running test notes
-	2. Unix users
-	3. Windows users
+- [Get Strted](https://github.com/qafoori/transaction-fee#get-started)
+	1. [Clone the repo](https://github.com/qafoori/transaction-fee#1-clone-the-repo)
+	2. [Install dependencies](https://github.com/qafoori/transaction-fee#2-install-dependencies)
+	3. [Setting up environment variables (*Very Important*)](https://github.com/qafoori/transaction-fee#3-setting-up-environment-variables-very-important)
+	4. [Starting scripts](https://github.com/qafoori/transaction-fee#4-starting-scripts)
+	5. [Running tests scripts](https://github.com/qafoori/transaction-fee#5-running-tests-scripts)
+	6. [Data manipulation scripts](https://github.com/qafoori/transaction-fee#6-data-manipulation-scripts)
+	7. [Contributing scripts](https://github.com/qafoori/transaction-fee#7-contributing-scripts)
+- [Imortant Things](https://github.com/qafoori/transaction-fee#imortant-things)
+	1. [Running test notes](https://github.com/qafoori/transaction-fee#1-running-test-notes)
+	2. [Unix users](https://github.com/qafoori/transaction-fee#2-unix-users)
+	3. [Windows users](https://github.com/qafoori/transaction-fee#3-windows-users)
 
 # Get Started
 To run this repo on your local environments, follow these steps:
