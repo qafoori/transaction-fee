@@ -4,7 +4,18 @@ const log = require('../scripts/log-to-console');
 const { CASH_IN, CASH_OUT_JURIDICAL, CASH_OUT_NATURAL } = require('../constants/storage-types.constant');
 const { CASH_IN_API, CASH_OUT_JURIDICAL_API, CASH_OUT_NATURAL_API } = require('../constants/api.constant');
 
+/**
+ *
+ * This class will fetch necessary data from APIs
+ * In the main app (../index.js) we will check if API data is needed or not
+ * for example, if we had a transaction which has type of "cash_in", then we will
+ * fetch it's data from API
+ */
 module.exports = class Data extends Storage {
+  /**
+   *
+   * Fetch "cash_in" data from api and store in storage
+   */
   async getCashIn() {
     try {
       const savedData = this.get(CASH_IN);
@@ -19,6 +30,10 @@ module.exports = class Data extends Storage {
     }
   }
 
+  /**
+   *
+   * Fetch "cash_out_natural" data from api and store in storage
+   */
   async getCashOutNatural() {
     try {
       const savedData = this.get(CASH_OUT_NATURAL);
@@ -33,6 +48,10 @@ module.exports = class Data extends Storage {
     }
   }
 
+  /**
+   *
+   * Fetch "cash_out_juridical" data from api and store in storage
+   */
   async getCashOutJuridical() {
     try {
       const savedData = this.get(CASH_OUT_JURIDICAL);

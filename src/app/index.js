@@ -2,15 +2,32 @@ const AppBase = require('./base.app');
 const log = require('../scripts/log-to-console');
 const { CASH_IN, CASH_OUT_JURIDICAL, CASH_OUT_NATURAL } = require('../constants/storage-types.constant');
 
+/**
+ *
+ * This is the main class
+ * extends from "Data" and "Amount" classes
+ * The main method is ".start()", so by calling this method, the app starts calculation data
+ */
 module.exports = class App extends AppBase {
   constructor(_data) {
     super();
 
     this.data = _data;
     this.commissions = [];
+
+    /**
+     * As the very first step, we'll calculate all transaction total amounts per week
+     */
     this.calculateAmounts(this.data);
   }
 
+  /**
+   *
+   *
+   *
+   * @param {*: transaction type, given in JSON files} param0
+   * @returns commission fee for cash out (after checking for natural | juridical)
+   */
   async cashOut({ user_id, date, user_type, type, operation: { amount } }) {
     switch (user_type) {
       case 'natural': {
@@ -37,6 +54,13 @@ module.exports = class App extends AppBase {
     }
   }
 
+  /**
+   *
+   *
+   *
+   * @param {*: transaction type, given in JSON files} param0
+   * @returns commission fee for cash_out transaction, when user is natural
+   */
   cashOutNatural({ user_id, date, user_type, type, operation: { amount } }) {
     const totalAmount = this.getUserAmount({ user_id, date, user_type, type });
 
@@ -53,6 +77,13 @@ module.exports = class App extends AppBase {
     return (0).toFixed(2);
   }
 
+  /**
+   *
+   *
+   *
+   * @param {*: transaction type, given in JSON files} param0
+   * @returns commission fee for cash_out transaction, when user is juridical
+   */
   cashOutJuridical({ operation: { amount } }) {
     // prettier-ignore
     const { percents, min: { amount: minAmount } } = this.storage.get(CASH_OUT_JURIDICAL)
@@ -61,6 +92,13 @@ module.exports = class App extends AppBase {
     return Math.max(commission, minAmount).toFixed(2);
   }
 
+  /**
+   *
+   *
+   *
+   * @param {*: transaction type, given in JSON files} param0
+   * @returns commission fee for cash_in transaction (not depended in user type)
+   */
   async cashIn({ operation: { amount } }) {
     await this.getCashIn();
     // prettier-ignore
@@ -70,6 +108,13 @@ module.exports = class App extends AppBase {
     return Math.min(commission, maxAmount).toFixed(2);
   }
 
+  /**
+   *
+   *
+   *
+   * @param {*: transaction type, given in JSON files} param0
+   * @returns all commission fees in an array (this.commission)
+   */
   async start() {
     for (const item of this.data) {
       switch (item.type) {
