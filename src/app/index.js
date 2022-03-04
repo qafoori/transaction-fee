@@ -116,7 +116,7 @@ module.exports = class App extends AppBase {
    * @returns manipulates the final fee. in this case, will convert integer number to ceiled float with two decimals
    */
   manipulateFee(number) {
-    return number.toFixed(2);
+    return (Math.ceil(number * 100) / 100).toFixed(2);
   }
 
   /**
@@ -137,6 +137,7 @@ module.exports = class App extends AppBase {
 
         case 'cash_in': {
           const finalFee = await this.cashIn(item);
+          // const finalFee = 0.23;
           this.commissions.push(this.manipulateFee(finalFee));
           break;
         }

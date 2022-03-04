@@ -1,71 +1,71 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuites name="jest tests" tests="25" failures="0" errors="0" time="5.048">
-  <testsuite name="testing `Data` class" errors="0" failures="0" skipped="0" timestamp="2022-03-03T22:49:34" time="2.859" tests="3">
-    <testcase classname="testing `Data` class should fetch `cash in` data from API" name="testing `Data` class should fetch `cash in` data from API" time="0.734">
-    </testcase>
-    <testcase classname="testing `Data` class should fetch `cash out natural` data from API" name="testing `Data` class should fetch `cash out natural` data from API" time="0.564">
-    </testcase>
-    <testcase classname="testing `Data` class should fetch `cash out juridical` data from API" name="testing `Data` class should fetch `cash out juridical` data from API" time="0.633">
+<testsuites name="jest tests" tests="25" failures="0" errors="0" time="5.71">
+  <testsuite name="testing fetch helper" errors="0" failures="0" skipped="0" timestamp="2022-03-04T00:18:57" time="2.264" tests="1">
+    <testcase classname="testing fetch helper should fetch api" name="testing fetch helper should fetch api" time="1.249">
     </testcase>
   </testsuite>
-  <testsuite name="testing fetch helper" errors="0" failures="0" skipped="0" timestamp="2022-03-03T22:49:37" time="0.506" tests="1">
-    <testcase classname="testing fetch helper should fetch api" name="testing fetch helper should fetch api" time="0.416">
-    </testcase>
-  </testsuite>
-  <testsuite name="testing app base class" errors="0" failures="0" skipped="0" timestamp="2022-03-03T22:49:37" time="0.075" tests="1">
-    <testcase classname="testing app base class should contain extended classes methods and properties" name="testing app base class should contain extended classes methods and properties" time="0">
-    </testcase>
-  </testsuite>
-  <testsuite name="testing `Amount` class" errors="0" failures="0" skipped="0" timestamp="2022-03-03T22:49:38" time="0.092" tests="6">
+  <testsuite name="testing `Amount` class" errors="0" failures="0" skipped="0" timestamp="2022-03-04T00:18:59" time="0.103" tests="6">
     <testcase classname="testing `Amount` class testing `makeKey` method should make a unique key [natural &amp; cash_in]" name="testing `Amount` class testing `makeKey` method should make a unique key [natural &amp; cash_in]" time="0.001">
     </testcase>
-    <testcase classname="testing `Amount` class testing `makeKey` method should make a unique key [juridical &amp; cash_out]" name="testing `Amount` class testing `makeKey` method should make a unique key [juridical &amp; cash_out]" time="0">
+    <testcase classname="testing `Amount` class testing `makeKey` method should make a unique key [juridical &amp; cash_out]" name="testing `Amount` class testing `makeKey` method should make a unique key [juridical &amp; cash_out]" time="0.001">
     </testcase>
     <testcase classname="testing `Amount` class testing `makeKey` method should make a unique key [natural &amp; cash_out]" name="testing `Amount` class testing `makeKey` method should make a unique key [natural &amp; cash_out]" time="0">
     </testcase>
-    <testcase classname="testing `Amount` class testing `makeKey` method should make a unique key [juridical &amp; cash_in]" name="testing `Amount` class testing `makeKey` method should make a unique key [juridical &amp; cash_in]" time="0.001">
+    <testcase classname="testing `Amount` class testing `makeKey` method should make a unique key [juridical &amp; cash_in]" name="testing `Amount` class testing `makeKey` method should make a unique key [juridical &amp; cash_in]" time="0">
     </testcase>
-    <testcase classname="testing `Amount` class testing `getUserAmount` &amp; `calculateAmounts` &amp; `calculateUserAmount` method should calculate one user total amounts per weeks" name="testing `Amount` class testing `getUserAmount` &amp; `calculateAmounts` &amp; `calculateUserAmount` method should calculate one user total amounts per weeks" time="0.002">
+    <testcase classname="testing `Amount` class testing `getUserAmount` &amp; `calculateAmounts` &amp; `calculateUserAmount` method should calculate one user total amounts per weeks" name="testing `Amount` class testing `getUserAmount` &amp; `calculateAmounts` &amp; `calculateUserAmount` method should calculate one user total amounts per weeks" time="0.001">
     </testcase>
-    <testcase classname="testing `Amount` class testing `getUserAmount` &amp; `calculateAmounts` &amp; `calculateUserAmount` method should result in expected map object" name="testing `Amount` class testing `getUserAmount` &amp; `calculateAmounts` &amp; `calculateUserAmount` method should result in expected map object" time="0">
+    <testcase classname="testing `Amount` class testing `getUserAmount` &amp; `calculateAmounts` &amp; `calculateUserAmount` method should result in expected map object" name="testing `Amount` class testing `getUserAmount` &amp; `calculateAmounts` &amp; `calculateUserAmount` method should result in expected map object" time="0.001">
     </testcase>
   </testsuite>
-  <testsuite name="testing prototypes config" errors="0" failures="0" skipped="0" timestamp="2022-03-03T22:49:38" time="0.061" tests="2">
+  <testsuite name="testing app base class" errors="0" failures="0" skipped="0" timestamp="2022-03-04T00:18:59" time="0.091" tests="1">
+    <testcase classname="testing app base class should contain extended classes methods and properties" name="testing app base class should contain extended classes methods and properties" time="0">
+    </testcase>
+  </testsuite>
+  <testsuite name="testing prototypes config" errors="0" failures="0" skipped="0" timestamp="2022-03-04T00:18:59" time="0.075" tests="2">
     <testcase classname="testing prototypes config should append a prototype for calculating week number of year to the `Date` object" name="testing prototypes config should append a prototype for calculating week number of year to the `Date` object" time="0.001">
     </testcase>
-    <testcase classname="testing prototypes config should calculate week number of year" name="testing prototypes config should calculate week number of year" time="0.001">
+    <testcase classname="testing prototypes config should calculate week number of year" name="testing prototypes config should calculate week number of year" time="0.006">
     </testcase>
   </testsuite>
-  <testsuite name="testing class helper" errors="0" failures="0" skipped="0" timestamp="2022-03-03T22:49:38" time="0.052" tests="1">
-    <testcase classname="testing class helper should extend multiple classes" name="testing class helper should extend multiple classes" time="0.001">
-    </testcase>
-  </testsuite>
-  <testsuite name="testing storage helper" errors="0" failures="0" skipped="0" timestamp="2022-03-03T22:49:38" time="0.049" tests="3">
-    <testcase classname="testing storage helper should put and get data in storage" name="testing storage helper should put and get data in storage" time="0">
-    </testcase>
-    <testcase classname="testing storage helper should put data in storage only if that is not already exist" name="testing storage helper should put data in storage only if that is not already exist" time="0">
-    </testcase>
-    <testcase classname="testing storage helper should check if data is exist in storage" name="testing storage helper should check if data is exist in storage" time="0.002">
-    </testcase>
-  </testsuite>
-  <testsuite name="testing add environment variables to the `global` object" errors="0" failures="0" skipped="0" timestamp="2022-03-03T22:49:38" time="0.056" tests="1">
+  <testsuite name="testing add environment variables to the `global` object" errors="0" failures="0" skipped="0" timestamp="2022-03-04T00:18:59" time="0.065" tests="1">
     <testcase classname="testing add environment variables to the `global` object should add `API_BASE_URL` to the `global` object" name="testing add environment variables to the `global` object should add `API_BASE_URL` to the `global` object" time="0.001">
     </testcase>
   </testsuite>
-  <testsuite name="testing dotenv package configuration" errors="0" failures="0" skipped="0" timestamp="2022-03-03T22:49:38" time="0.049" tests="1">
+  <testsuite name="testing `Data` class" errors="0" failures="0" skipped="0" timestamp="2022-03-04T00:18:57" time="2.741" tests="3">
+    <testcase classname="testing `Data` class should fetch `cash in` data from API" name="testing `Data` class should fetch `cash in` data from API" time="0.619">
+    </testcase>
+    <testcase classname="testing `Data` class should fetch `cash out natural` data from API" name="testing `Data` class should fetch `cash out natural` data from API" time="0.549">
+    </testcase>
+    <testcase classname="testing `Data` class should fetch `cash out juridical` data from API" name="testing `Data` class should fetch `cash out juridical` data from API" time="0.575">
+    </testcase>
+  </testsuite>
+  <testsuite name="testing class helper" errors="0" failures="0" skipped="0" timestamp="2022-03-04T00:18:59" time="0.072" tests="1">
+    <testcase classname="testing class helper should extend multiple classes" name="testing class helper should extend multiple classes" time="0">
+    </testcase>
+  </testsuite>
+  <testsuite name="testing dotenv package configuration" errors="0" failures="0" skipped="0" timestamp="2022-03-04T00:18:59" time="0.078" tests="1">
     <testcase classname="testing dotenv package configuration should store environment variables in the global.env object" name="testing dotenv package configuration should store environment variables in the global.env object" time="0.002">
     </testcase>
   </testsuite>
-  <testsuite name="testing `App` class" errors="0" failures="0" skipped="0" timestamp="2022-03-03T22:49:34" time="4.499" tests="6">
-    <testcase classname="testing `App` class should start the app and return commission fees" name="testing `App` class should start the app and return commission fees" time="1.542">
+  <testsuite name="testing storage helper" errors="0" failures="0" skipped="0" timestamp="2022-03-04T00:18:59" time="0.12" tests="3">
+    <testcase classname="testing storage helper should put and get data in storage" name="testing storage helper should put and get data in storage" time="0.001">
     </testcase>
-    <testcase classname="testing `App` class should calculate cash in commission fee" name="testing `App` class should calculate cash in commission fee" time="0.503">
+    <testcase classname="testing storage helper should put data in storage only if that is not already exist" name="testing storage helper should put data in storage only if that is not already exist" time="0">
     </testcase>
-    <testcase classname="testing `App` class should calculate cash out commission fee for juridical user" name="testing `App` class should calculate cash out commission fee for juridical user" time="0.497">
+    <testcase classname="testing storage helper should check if data is exist in storage" name="testing storage helper should check if data is exist in storage" time="0.001">
     </testcase>
-    <testcase classname="testing `App` class should calculate cash out commission fee for natural user with the total amount of MORE than given total amount in a week" name="testing `App` class should calculate cash out commission fee for natural user with the total amount of MORE than given total amount in a week" time="0.452">
+  </testsuite>
+  <testsuite name="testing `App` class" errors="0" failures="0" skipped="0" timestamp="2022-03-04T00:18:57" time="5.2" tests="6">
+    <testcase classname="testing `App` class should start the app and return commission fees" name="testing `App` class should start the app and return commission fees" time="1.937">
     </testcase>
-    <testcase classname="testing `App` class should calculate cash out commission fee for natural user with the total amount of LESS than given total amount in a week" name="testing `App` class should calculate cash out commission fee for natural user with the total amount of LESS than given total amount in a week" time="0.451">
+    <testcase classname="testing `App` class should calculate cash in commission fee" name="testing `App` class should calculate cash in commission fee" time="0.544">
+    </testcase>
+    <testcase classname="testing `App` class should calculate cash out commission fee for juridical user" name="testing `App` class should calculate cash out commission fee for juridical user" time="0.495">
+    </testcase>
+    <testcase classname="testing `App` class should calculate cash out commission fee for natural user with the total amount of MORE than given total amount in a week" name="testing `App` class should calculate cash out commission fee for natural user with the total amount of MORE than given total amount in a week" time="0.486">
+    </testcase>
+    <testcase classname="testing `App` class should calculate cash out commission fee for natural user with the total amount of LESS than given total amount in a week" name="testing `App` class should calculate cash out commission fee for natural user with the total amount of LESS than given total amount in a week" time="0.559">
     </testcase>
     <testcase classname="testing `App` class should manipulate final fee to expected result" name="testing `App` class should manipulate final fee to expected result" time="0.001">
     </testcase>
